@@ -123,9 +123,14 @@ namespace GifImporter
                         // Save the image
                         spriteSheet.Save(spritePath);
                     }
+                    catch (Exception e)
+                    {
+                        Error($"Error rendering spritesheet:\n{e}");
+                        return;
+                    }
                     finally
                     {
-                        image.Dispose();
+                        image?.Dispose();
                     }
 
                     Debug($"Image saved as {spritePath}");
