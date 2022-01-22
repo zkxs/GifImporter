@@ -61,7 +61,7 @@ namespace GifImporter
                 {
                     Error(new ArgumentException($"Image is not a gif or the URI Scheme {uri.Scheme} is not supported"));
                     image?.Dispose();
-                    return true;
+                    return true; // run original method
                 }
                 __result = targetSlot.StartTask(async delegate ()
                 {
@@ -187,7 +187,7 @@ namespace GifImporter
                     _UVAtlasAnimator.OffsetField.Target = _UnlitMaterial.TextureOffset;
                 });
 
-                return false;
+                return false; // skip original method
             }
         }
     }
